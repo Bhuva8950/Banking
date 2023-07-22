@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h2>Account Form</h2>
+    <form method="post", action={% url "account_create" %}>
+        {% csrf_token %}
+        <div class="mb-3">
+          <label for="type" class="form-label">Account Type</label>
+          <input type="text" class="form-control" id="type", name="type">
+        </div>
+        <div class="mb-3">
+            <label for="type" class="form-label">Account Number</label>
+            <input type="number" class="form-control" id="number", name="number">
+        </div>
+        <div class="mb-3">
+            <label for="type" class="form-label">Amount</label>
+            <input type="number" class="form-control" id="amount", name="amount">
+        </div>
+        <div class="mb-3">
+            <label for="type" class="form-label">User</label>
+            <input type="text" class="form-control" id="user", name="user">
+        </div>
+        
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+</div>
+
+{% endblock%}
