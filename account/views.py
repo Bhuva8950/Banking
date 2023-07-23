@@ -1,4 +1,5 @@
-from typing import Any
+from typing import Any, Dict
+from django.forms.models import BaseModelForm
 from django.http import HttpRequest, HttpResponse
 from django.shortcuts import render, HttpResponse
 from django.views import View
@@ -6,7 +7,7 @@ from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView, FormView
 from account.models import Account, Customer, Employees
-from django.urls import reverse_lazy
+from django.urls import reverse_lazy, reverse
 from account.forms import AccountForm
 
 # Create your views here.
@@ -22,10 +23,9 @@ class AccountListView(ListView):
 class AccountCreateView(CreateView):
     model = Account
     form_class = AccountForm
-    fields = ("amount","account_number")
-
-
-class AccountFormView(FormView):
     template_name = "account_form.html"
-    form_class = AccountForm
-    success_url = "/"
+
+    
+    def get_success_url(self):
+        return reverse("account_list")
+

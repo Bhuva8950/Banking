@@ -3,7 +3,7 @@ from django import forms
 
 
 
-class AccountForm(forms.Form):
+class AccountForm(forms.ModelForm):
 
     class Meta:
         model = Account
