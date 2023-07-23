@@ -10,8 +10,10 @@
                 <th scope="col">Sr. No</th>
                 <th scope="col">Type</th>
                 <th scope="col">Number</th>
-                <th scope="col">Ballance</th>
                 <th scope="col">User</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Balance</th>
             </tr>
         </thead>
         <tbody>
@@ -20,8 +22,22 @@
             <th scope="row">{{forloop.counter}}</th>
             <td>{{i.type}}</td>
             <td>{{i.account_number}}</td>
-            <td>{{i.amount}}</td>
             <td>{{i.user}}</td>
+            <td >
+              <form action={% url "account_update" pk=i.id %}>
+                <button type="submit" class="btn btn-outline-success btn-sm">Update</button>
+              </form>
+            </td>
+            <td>
+              <form action={% url "account_delete" pk=i.id %}>
+                <button type="submit" class="btn btn-outline-success btn-sm">Delete</button>
+              </form>
+            </td>
+            <td>
+              <form action={% url "account_details" pk=i.id %}>
+                <button type="submit" class="btn btn-outline-success btn-sm">Balance</button>
+              </form>
+            </td>
           </tr>
           {% endfor %}
         </tbody>

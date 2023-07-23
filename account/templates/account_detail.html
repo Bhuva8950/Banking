@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block body %}
+
+<div class="container">
+    <h1>Account Details as bellow</h1>
+    <table class="table table-bordered">
+        <tr>
+          <th>First Name</th>
+          <td>{{account.user.first_name}}</td>
+        </tr>
+        <tr>
+          <th>Last Name</th>
+          <td>{{account.user.last_name}}</td>
+        </tr>
+        <tr>
+            <th>Age</th>
+            <td>{{account.user.age}}</td>
+        </tr>
+        <tr>
+          <th>Account Type</th>
+          <td>{{account.type}}</td>
+        </tr>
+        <tr>
+            <th>Account Number</th>
+            <td>{{account.account_number}}</td>
+        </tr>
+        <tr>
+            <th>Account Balance</th>
+            <td>{{account.amount}}</td>
+        </tr>
+      </table>
+
+</div>
+
+{% endblock%}

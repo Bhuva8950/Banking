@@ -29,3 +29,24 @@ class AccountCreateView(CreateView):
     def get_success_url(self):
         return reverse("account_list")
 
+class AccountUpdateView(UpdateView):
+    model = Account
+    template_name = "account_form.html"
+    form_class = AccountForm
+
+    def get_success_url(self):
+        return reverse("account_list")
+
+
+class AccountDetailView(DetailView):
+    model = Account
+    template_name = "account_detail.html"
+    context_object_name = "account"
+
+class AccountDeleteView(DeleteView):
+    model = Account
+    template_name = "account_delete.html"
+    context_object_name = "account"
+    
+    def get_success_url(self):
+        return reverse("account_list")
